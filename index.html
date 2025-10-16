@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Classic Pinoy Snack Shop</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-image: url("https://i.pinimg.com/1200x/16/ca/30/16ca306373adb160d2ac4eb2d1059225.jpg");
+        background-size: cover;        
+        background-position: center;  
+        background-repeat: no-repeat; 
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        background-color: #F75270;
+        color: white;
+        padding: 20px 0;
+        margin: 0;
+        font-size: 28px;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .snack-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin: 40px auto;
+        max-width: 1000px;
+    }
+
+    .snack-form {
+        background-color: #F7CAC9;
+        border: 2px solid #DC143C;
+        padding: 20px;
+        width: 260px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .snack-form:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        color: #DC143C;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-weight: 500;
+        color: #DC143C;
+    }
+
+    input[type="number"] {
+        padding: 5px;
+        border-radius: 6px;
+        border: 1px solid #DC143C;
+        width: 80px;
+        text-align: center;
+        margin-left: 5px;
+    }
+
+    button {
+        background-color: #F75270;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 15px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-weight: bold;
+        transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #F08787;
+    }
+
+    p#result_chicharon,
+    p#result_turon,
+    p#result_empanada,
+    p#result_barbeque,
+    p#result_dynamite,
+    p#result_halo-halo {
+        font-weight: 600;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Classic Pinoy Snack Shop</h1>
+
+<div class="snack-container">
+    <form class="snack-form" onsubmit="processOrder(event, 'chicharon')">
+        <h2>Chicharon (₱30)</h2>
+        <img src="images/chicharon.jpg" alt="Chicharon">
+        <p><label>Quantity: <input type="number" id="qty_chicharon"></label></p>
+        <p><label>Cash: <input type="number" id="cash_chicharon"></label></p>
+        <button type="submit">Buy Chicharon</button>
+        <p id="result_chicharon"></p>
+    </form>
+
+    <form class="snack-form" onsubmit="processOrder(event, 'turon')">
+        <h2>Turon (₱20)</h2>
+        <img src="images/turon.jpg" alt="Turon">
+        <p><label>Quantity: <input type="number" id="qty_turon"></label></p>
+        <p><label>Cash: <input type="number" id="cash_turon"></label></p>
+        <button type="submit">Buy Turon</button>
+        <p id="result_turon"></p>
+    </form>
+
+    <form class="snack-form" onsubmit="processOrder(event, 'empanada')">
+        <h2>Empanada (₱30)</h2>
+        <img src="images/empanada.jpg" alt="Empanada">
+        <p><label>Quantity: <input type="number" id="qty_empanada"></label></p>
+        <p><label>Cash: <input type="number" id="cash_empanada"></label></p>
+        <button type="submit">Buy Empanada</button>
+        <p id="result_empanada"></p>
+    </form>
+
+    <form class="snack-form" onsubmit="processOrder(event, 'barbeque')">
+        <h2>Barbeque (₱25)</h2>
+        <img src="images/bbq.jpg" alt="Empanada">
+        <p><label>Quantity: <input type="number" id="qty_barbeque"></label></p>
+        <p><label>Cash: <input type="number" id="cash_barbeque"></label></p>
+        <button type="submit">Buy Barbeque</button>
+        <p id="result_barbeque"></p>
+    </form>
+
+    <form class="snack-form" onsubmit="processOrder(event, 'dynamite')">
+        <h2>Dynamite (₱20)</h2>
+        <img src="images/dynamite.jpg" alt="Empanada">
+        <p><label>Quantity: <input type="number" id="qty_dynamite"></label></p>
+        <p><label>Cash: <input type="number" id="cash_dynamite"></label></p>
+        <button type="submit">Buy Dynamite</button>
+        <p id="result_dynamite"></p>
+    </form>
+
+    <form class="snack-form" onsubmit="processOrder(event, 'halo-halo')">
+        <h2>Halo-Halo (₱25)</h2>
+        <img src="images/halohalo.jpg" alt="Empanada">
+        <p><label>Quantity: <input type="number" id="qty_halo-halo"></label></p>
+        <p><label>Cash: <input type="number" id="cash_halo-halo"></label></p>
+        <button type="submit">Buy Halo-Halo</button>
+        <p id="result_halo-halo"></p>
+    </form>
+</div>
+
+<script>
+async function processOrder(event, snack) {
+    event.preventDefault();
+    const cash = document.getElementById(`cash_${snack}`).value.trim();
+    const quantity = document.getElementById(`qty_${snack}`).value.trim();
+    const data = { cash, quantity, snack };
+
+    try {
+        const response = await fetch(`snack_api.php?action=processOrder`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        console.log('Response Status:', response.status);
+        console.log('Response URL:', response.url);
+
+        const result = await response.json();
+        console.log('Parsed JSON:', result);
+
+        const resultElement = document.getElementById(`result_${snack}`);
+        if (response.ok && result.success) {
+            resultElement.textContent = `Your change is ₱${result.change}.`;
+            resultElement.style.color = "green";
+        } else {
+            resultElement.textContent = `Error: ${result.error}`;
+            resultElement.style.color = "red";
+        }
+    } catch (error) {
+        console.log('Fetch error:', error);
+        document.getElementById(`result_${snack}`).textContent = 'Fetch error: ' + error.message;
+    }
+}
+</script>
+
+</body>
+</html>
